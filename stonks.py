@@ -51,14 +51,14 @@ class Solution:
             if prices.index(minimum) < prices.index(maximum):
                 profit = maximum - minimum
 
-            for i in range(prices-1):
+            for i in range(len(prices)-1):
                 if prices[i] > prices[i+1]:
                     test = False
                 if prices[i] < prices[index]:
                     diff = prices[index] - prices[i]
                     index += 1
             profit2 = diff
-            for i in range(index, prices-1):
+            for i in range(index, len(prices)-1):
                 if prices[i] < prices[index]:
                     diff = prices[index] - prices[i]
                     index += 1
