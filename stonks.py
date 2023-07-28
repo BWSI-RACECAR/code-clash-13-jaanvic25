@@ -44,12 +44,12 @@ class Solution:
             saleNum = 0
             index = 1
             diff = 0
-            min  = min(prices)
-            max = max(prices)
+            minimum  = min(prices)
+            maximum = max(prices)
             test = True
             
-            if prices.index(min) < prices.index(max):
-                profit = max - min
+            if prices.index(minimum) < prices.index(maximum):
+                profit = maximum - minimum
 
             for i in range(prices-1):
                 if prices[i] > prices[i+1]:
