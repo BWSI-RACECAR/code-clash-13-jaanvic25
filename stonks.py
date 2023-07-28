@@ -52,8 +52,8 @@ class Solution:
                 profit = maximum - minimum
 
             for i in range(len(prices)-1):
-                if prices[i] > prices[i+1]:
-                    test = False
+                if prices[i] < prices[i+1]:
+                    test = True
                 if prices[i] < prices[index]:
                     diff = prices[index] - prices[i]
                     index += 1
