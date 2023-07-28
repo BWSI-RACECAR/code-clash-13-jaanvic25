@@ -46,10 +46,12 @@ class Solution:
             diff = 0
             minimum  = min(prices)
             maximum = max(prices)
-            test = True
+            test = False
             
             if prices.index(minimum) < prices.index(maximum):
                 profit = maximum - minimum
+                print("minmax", profit)
+    
 
             for i in range(len(prices)-1):
                 if prices[i] < prices[i+1]:
@@ -62,9 +64,11 @@ class Solution:
                 if prices[i] < prices[index]:
                     diff = prices[index] - prices[i]
                     index += 1
+            profit2 += diff
             if not test:
                 return 0
-            
+
+            print(profit2)
             if profit2 > profit:
                 return profit2
             else: 
