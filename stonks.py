@@ -39,45 +39,25 @@ Total profit = 4 + 8 = 12.
 
 class Solution:
     def stonks(self, prices):
-            profit = 0
-            profit2 = 0
-            saleNum = 0
-            index = 1
-            diff = 0
-            minimum  = min(prices)
-            maximum = max(prices)
-            test = False
-            print(minimum, " ", maximum)
-            if prices.index(minimum) < prices.index(maximum):
-                profit = maximum - minimum
-                print("minmax", profit)
-    
-
-            for i in range(len(prices)-1):
-                if prices[i] < prices[i+1]:
-                    test = True
-                if prices[i] < prices[index]:
-                    diff = prices[index] - prices[i]
-                    index += 1
-            profit2 = diff
-            for i in range(index, len(prices)-1):
-                if prices[i] < prices[index]:
-                    diff = prices[index] - prices[i]
-                    index += 1
-            if not test:
-                return 0
-            
-            if profit2 > profit:
-                return profit2
-            else: 
-                return profit
+        if not prices or len(prices) < 2:
+            return 0
+        first = 10000
+        second = 10000
+        first_profit = 0
+        second_profit = 0
+        for price in prices:
+            first = min(first, price)
+            first_profit = max(first_profit, price - first)
+            second = min(second, price - first_profit)
+            second_profit = max(second_profit, price - second)
+        return second_profit
                 
             
             #type prices: list of int
             #return type: int
             
             #TODO: Write code below to returnn an int with the solution to the prompt.
-            pass
+            
 
 def main():
     array = input().split(" ")
